@@ -1,0 +1,43 @@
+import React from "react";
+
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import { Typography, Card, CardContent } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    width: "21.5rem",
+    margin: "0.5rem"
+  }
+});
+
+const VolunteerCard = props => {
+  const classes = useStyles();
+  const { person } = props;
+  const { firstName, lastName, address, distance, requests } = person;
+  return (
+    <Card className={classes.root}>
+      <CardContent>
+      <Typography>
+        <AccountBoxIcon /> {firstName} {lastName}
+      </Typography>
+      <Typography style={{ marginLeft: "1.8rem" }}>{address}</Typography>
+      <Typography style={{ marginLeft: "1.8rem" }}>Requests:</Typography>
+      <ul style={{ marginTop: "0rem" }}>
+        {requests.map(item => {
+          return (
+            <li style={{ marginLeft: "1rem" }} key={item}>
+              {item}
+            </li>
+          );
+        })}
+      </ul>
+      <Typography style={{ marginRight: "1rem", textAlign: "right" }}>
+        {distance} mi
+      </Typography>
+      </CardContent>
+    </Card>
+  );
+};
+
+export { VolunteerCard };
