@@ -34,8 +34,8 @@ const VolunteerHome = () => {
         xs={3}
         direction="column"
         justiy="flex-start"
-		alignItems="flex-start"
-		style={{borderRight: 'solid'}}
+		    alignItems="flex-start"
+		    style={{borderRight: 'solid'}}
       >
         {sampleList.map(person => {
           return <VolunteerCard person={person} />;
