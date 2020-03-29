@@ -13,7 +13,7 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string().required("Please enter a password")
 });
 
-const Login = () => {
+const Signup = () => {
   let history = useHistory();
 
   return (
@@ -24,7 +24,7 @@ const Login = () => {
         onSubmit={values => {
           firebase
             .auth()
-            .signInWithEmailAndPassword(values.email, values.password)
+            .createUserWithEmailAndPassword(values.email, values.password)
             .then((user) => {
                 history.push('/');
             })
@@ -45,4 +45,4 @@ const Login = () => {
   );
 };
 
-export { Login };
+export { Signup };
