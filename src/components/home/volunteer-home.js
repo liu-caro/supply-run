@@ -22,33 +22,6 @@ const VolunteerHome = () => {
       lastName: "Sun",
       phone: "1234567890",
       address: "124 Fake Address",
-      lat: "29.570",
-      long: "-98.61",
-      request: "Hello world"
-    },
-    {
-      firstName: "Cari",
-      lastName: "Liu",
-      phone: "1234567890",
-      address: "124 Fake Address",
-      lat: "29.5916",
-      long: "-98.640",
-      request: "Hello world"
-    },
-    {
-      firstName: "Other",
-      lastName: "Person",
-      phone: "1234567890",
-      address: "124 Fake Address",
-      lat: "29.573",
-      long: "-98.63",
-      request: "Hello world"
-    },
-    {
-      firstName: "Tommy",
-      lastName: "Sun",
-      phone: "1234567890",
-      address: "124 Fake Address",
       lat: "36.188725",
       long: "-115.276",
       request: "Hello world"

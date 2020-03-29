@@ -15,7 +15,8 @@ const DefaultHome = () => {
     <div className="App" style={{ backgroundImage: `url(${imageUrl})`}}>
       <div className="overlay">
       <div style={{ textAlign: "center"}} className="App-content">
-      <Typography variant="h1" style={{ fontWeight: 900, margin: "3rem 0rem" }}>
+        <div style={{ backgroundColor: "rgba(36,130,212,0.85)"}} >
+      <Typography variant="h1" style={{ fontWeight: 900, margin: "2rem 3rem" }}>
         SupplyRun
         <ShoppingCartIcon style={{}} />
       </Typography>
@@ -39,16 +40,17 @@ const DefaultHome = () => {
       </Button>
 
       <Typography
-        variant="h5"
+        variant="h3"
         paragraph={true}
-        style={{ margin: "2rem 0rem 1rem" }}
+        style={{ margin: "3rem 0rem 0.25rem 0rem" }}
       >
         Our Mission Statement
       </Typography>
 
-      <Typography variant="h4">
-        To assist those in need in times of uncertainty.
+      <Typography variant="h6" style={{margin: "0rem 0rem 2rem 0rem"}}>
+        In these times, .
       </Typography>
+      </div>
       </div>
       </div>
     </div>
