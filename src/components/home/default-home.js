@@ -5,10 +5,16 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import DesktopLanding from '../../assets/desktop-landing.jpg';
+import MobileLanding from '../../assets/mobile-landing.jpg';
 
 const DefaultHome = () => {
+  const imageUrl = window.innerWidth >= 650 ? DesktopLanding : MobileLanding;
+
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="App" style={{ backgroundImage: `url(${imageUrl})`}}>
+      <div className="overlay">
+      <div style={{ textAlign: "center"}} className="App-content">
       <Typography variant="h1" style={{ fontWeight: 900, margin: "3rem 0rem" }}>
         SupplyRun
         <ShoppingCartIcon style={{}} />
@@ -43,6 +49,8 @@ const DefaultHome = () => {
       <Typography variant="h4">
         To assist those in need in times of uncertainty.
       </Typography>
+      </div>
+      </div>
     </div>
   );
 };
