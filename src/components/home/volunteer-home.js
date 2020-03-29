@@ -1,7 +1,7 @@
 import React from "react";
-
 import Grid from "@material-ui/core/Grid";
 import { VolunteerCard } from "../volunteer-card/volunteer-card";
+import { MapContainer } from "../map-component";
 
 const VolunteerHome = () => {
   const sampleList = [
@@ -44,7 +44,7 @@ const VolunteerHome = () => {
 
 
       <Grid container={true} xs={9}>
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAa
+      <MapContainer/>
       </Grid>
     </Grid>
   );
