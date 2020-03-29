@@ -8,23 +8,29 @@ const VolunteerHome = () => {
     {
       firstName: "Tommy",
       lastName: "Sun",
+      phone: "1234567890",
       address: "124 Fake Address",
-      requests: ["bread", "pb&j", "cogs"],
-      distance: 2.6
+      lat: "12.4",
+      long: "12.4",
+      request: "Hello world"
     },
     {
       firstName: "Cari",
       lastName: "Liu",
+      phone: "1234567890",
       address: "124 Fake Address",
-      requests: ["food1", "haha&j", "asdf"],
-      distance: 4.3
+      lat: "12.4",
+      long: "12.4",
+      request: "Hello world"
     },
     {
-      firstName: "Person",
-      lastName: "Yes",
+      firstName: "Other",
+      lastName: "Person",
+      phone: "1234567890",
       address: "124 Fake Address",
-      requests: ["ahhh", "ahhh&j", "ahhh"],
-      distance: 8.9
+      lat: "12.4",
+      long: "12.4",
+      request: "Hello world"
     }
   ];
   return (
@@ -37,7 +43,7 @@ const VolunteerHome = () => {
         alignItems="flex-start"
         style={{ borderRight: "solid" }}
       >
-        {sampleList.map(person => {
+        {sampleList.map((person) => {
           return <VolunteerCard person={person} />;
         })}
       </Grid>

@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 const VolunteerCard = props => {
   const classes = useStyles();
   const { person } = props;
-  const { firstName, lastName, address, distance, requests } = person;
+  const { firstName, lastName, address, request } = person;
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -22,18 +22,8 @@ const VolunteerCard = props => {
         <AccountBoxIcon /> {firstName} {lastName}
       </Typography>
       <Typography style={{ marginLeft: "1.8rem" }}>{address}</Typography>
-      <Typography style={{ marginLeft: "1.8rem" }}>Requests:</Typography>
-      <ul style={{ marginTop: "0rem" }}>
-        {requests.map(item => {
-          return (
-            <li style={{ marginLeft: "1rem" }} key={item}>
-              {item}
-            </li>
-          );
-        })}
-      </ul>
+      <Typography style={{ marginLeft: "1.8rem" }}>{request}</Typography>
       <Typography style={{ marginRight: "1rem", textAlign: "right" }}>
-        {distance} mi
       </Typography>
       </CardContent>
     </Card>
