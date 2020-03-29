@@ -1,6 +1,6 @@
 import React from "react";
 
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import PersonIcon from "@material-ui/icons/Person";
 import { Typography, Card, CardContent } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -19,7 +19,7 @@ const VolunteerCard = props => {
     <Card className={classes.root}>
       <CardContent>
       <Typography>
-        <AccountBoxIcon /> {firstName} {lastName}
+        <PersonIcon/> {firstName} {lastName}
       </Typography>
       <Typography style={{ marginLeft: "1.8rem" }}>{address}</Typography>
       <Typography style={{ marginLeft: "1.8rem" }}>{request}</Typography>

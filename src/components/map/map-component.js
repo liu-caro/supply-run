@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import { CurrentLocation } from './current-location';
+import StarIcon from '@material-ui/icons/Star';
+import Star from '../../assets/star.png';
 import { googleAPIKey } from "../../env";
 
-const mapStyles = {
-  width: "100%",
-  height: "100%"
-};
-
 export class MapContainerHOC extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+
+    this.state = {
     showingInfoWindow: false,  //Hides or the shows the infoWindow
     activeMarker: {},          //Shows the active marker upon click
-    selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
+    selectedPlace: {}  
+    }        //Shows the infoWindow to the selected place upon a marker
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -39,8 +40,19 @@ onClose = props => {
         >
         <Marker
           onClick={this.onMarkerClick}
-          name={'current location'}
-        />
+          name={'current location'}/>
+        {this.props.tasks.map((task, i) => {
+                  return <Marker
+                  onClick={this.onMarkerClick}
+                  key={i}
+                  label={i.toString()}
+                  name={task.address}
+                  position={{
+                    lat: parseFloat(task.lat),
+                    lng: parseFloat(task.long)
+                  }}
+                />
+        })}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
