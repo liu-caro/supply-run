@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import firebase from "../firebase";
+
 import Button from "@material-ui/core/Button";
 import { TextField } from "../components/form/text-field";
-import { useHistory } from "react-router-dom";
+
+import firebase from "../firebase";
+
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,7 +17,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => {
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <>

@@ -41,4 +41,10 @@ const findAllTasks = async () => {
   return await axios.get(SERVER_URL + "/findAllTasks");
 };
 
-export { bindTask, unbindTask, createTask, createVolunteer, findAllTasks };
+export {
+  bindTask,
+  unbindTask,
+  createTask,
+  createVolunteer,
+  findAllTasks
+};

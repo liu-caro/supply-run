@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -14,15 +14,29 @@ const DefaultHome = () => {
         <ShoppingCartIcon style={{}} />
       </Typography>
 
-      <Button component={Link} variant="contained" style={{margin:"0rem 1rem"}}>
+      <Button
+        component={Link}
+        to="/task"
+        variant="contained"
+        style={{ margin: "0rem 1rem" }}
+      >
         In Need?
       </Button>
 
-      <Button component={Link} variant="contained" style={{margin:"0rem 1rem"}}>
+      <Button
+        component={Link}
+        to="/signup"
+        variant="contained"
+        style={{ margin: "0rem 1rem" }}
+      >
         Sign up to help
       </Button>
 
-      <Typography variant="h5" paragraph={true} style={{ margin: "2rem 0rem 1rem" }}>
+      <Typography
+        variant="h5"
+        paragraph={true}
+        style={{ margin: "2rem 0rem 1rem" }}
+      >
         Our Mission Statement
       </Typography>
 

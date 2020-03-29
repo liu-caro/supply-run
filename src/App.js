@@ -5,7 +5,7 @@ import { Header } from "./pages/header";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Profile } from "./pages/profile";
-import { Register } from "./pages/register";
+import { Task } from "./pages/task";
 import { Signup } from "./pages/signup";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact={true} path="/" component={Home} />
-        <Route path="/register" component={Register} />
+        <Route path="/task" component={Task} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/profile" component={Profile} />
