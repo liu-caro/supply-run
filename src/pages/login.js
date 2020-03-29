@@ -3,7 +3,8 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+
+import { TextField } from "../components/form/text-field";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -22,20 +23,10 @@ const Login = () => {
           console.log(values);
         }}
       >
-        {({ errors, touched }) => (
+        {props => (
           <Form>
-            <Field
-              component={TextField}
-              name="email"
-              type="email"
-              label="Email"
-            />
-            <Field
-              component={TextField}
-              name="password"
-              type="password"
-              label="Password"
-            />
+            <Field component={TextField} type="email" name="email" />
+            <Field component={TextField} type="password" name="password" />
             <Button type="submit">Submit</Button>
           </Form>
         )}
@@ -45,28 +36,3 @@ const Login = () => {
 };
 
 export { Login };
-
-{
-  /* <div>
-<h1>Any place in your app!</h1>
-<Formik
-  initialValues={{ email: "", password: "" }}
-  validationSchema={LoginSchema}
-  onSubmit={values => {
-    console.log(values);
-  }}
->
-  {({ isSubmitting }) => (
-    <Form>
-      <Field type="email" name="email" />
-      <ErrorMessage name="email" component="div" />
-      <Field type="password" name="password" />
-      <ErrorMessage name="password" component="div" />
-      <button type="submit" disabled={isSubmitting}>
-        Submit
-      </button>
-    </Form>
-  )}
-</Formik>
-</div> */
-}
