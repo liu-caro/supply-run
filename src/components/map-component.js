@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import React, { Component } from "react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 
 const mapStyles = {
-  width: '100%',
-  height: '100%'
+  width: "100%",
+  height: "100%"
 };
 
-export class MapContainer extends Component {
+export class MapContainerHOC extends Component {
   render() {
     return (
       <Map
@@ -14,14 +14,16 @@ export class MapContainer extends Component {
         zoom={14}
         style={mapStyles}
         initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
+          lat: -1.2884,
+          lng: 36.8233
         }}
       />
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'IzaSyBdJ2cYDGw3-Z4UAH1yyzFDK-8--Fyyh0g'
-})(MapContainer);
+const MapContainer = GoogleApiWrapper({
+  apiKey: "IzaSyBdJ2cYDGw3-Z4UAH1yyzFDK-8--Fyyh0g"
+})(MapContainerHOC);
+
+export { MapContainer };
