@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import firebase from "../firebase";
 import Button from "@material-ui/core/Button";
-import { TextField } from "../components/form/text-field";
 import { useHistory } from "react-router-dom";
 
-const LoginSchema = Yup.object().shape({
+import Typography from "@material-ui/core/Typography";
+import { TextField } from "../components/form/text-field";
+
+import { createVolunteer } from "../services/tasks";
+import UserContext from "../services/authContext";
+
+const SignUpSchema = Yup.object().shape({
   email: Yup.string()
     .email("Please enter a valid email")
     .required("Please enter a valid email"),
@@ -15,29 +20,80 @@ const LoginSchema = Yup.object().shape({
 
 const Signup = () => {
   let history = useHistory();
+  const { setFireBaseId } = useContext(UserContext);
 
   return (
     <>
+      <Typography
+        variant="h1"
+        style={{ marginTop: "1.5rem", textAlign: "center" }}
+      >
+        Sign Up
+      </Typography>
       <Formik
-        initialValues={{ email: "", password: "" }}
-        validationSchema={LoginSchema}
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          phone: ""
+        }}
+        validationSchema={SignUpSchema}
         onSubmit={values => {
-          firebase
+          const { firstName, lastName, phone } = values;
+          return firebase
             .auth()
             .createUserWithEmailAndPassword(values.email, values.password)
-            .then((user) => {
-                history.push('/');
+            .then(user => {
+              setFireBaseId(user.uid);
+
+              const newVolunteer = {
+                firstName,
+                lastName,
+                phone,
+                uuid: user.uid
+              };
+              createVolunteer(newVolunteer).then(response => {
+                history.push("/");
+              });
             })
-            .catch((error) => {
-                alert(error.message);
+            .catch(error => {
+              alert(error.message);
             });
         }}
       >
-        {props => (
-          <Form>
-            <Field component={TextField} type="email" name="email" label="email"/>
-            <Field component={TextField} type="password" name="password" label="password"/>
-            <Button type="submit">Submit</Button>
+        {({ isSubmitting }) => (
+          <Form
+            style={{
+              display: "grid",
+              width: "33%",
+              marginLeft: "auto",
+              marginRight: "auto"
+            }}
+          >
+            <Field component={TextField} name="firstName" label="First Name" />
+            <Field component={TextField} name="lastName" label="Last Name" />
+            <Field
+              component={TextField}
+              type="email"
+              name="email"
+              label="Email"
+            />
+            <Field
+              component={TextField}
+              type="phone"
+              name="phone"
+              label="Phone"
+            />
+            <Field
+              component={TextField}
+              type="password"
+              name="password"
+              label="Password"
+            />
+            <Button disabled={isSubmitting} type="submit">
+              Submit
+            </Button>
           </Form>
         )}
       </Formik>
