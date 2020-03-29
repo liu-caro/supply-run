@@ -4,7 +4,7 @@ import { DefaultHome } from "../components/home/default-home";
 import { VolunteerHome } from "../components/home/volunteer-home";
 
 const Home = () => {
-  const typeOfHome = "a";
+  const typeOfHome = "b";
   return <>{typeOfHome === "a" ? <DefaultHome /> : <VolunteerHome />}</>;
 };
 

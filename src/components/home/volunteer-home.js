@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { VolunteerCard } from "../volunteer-card/volunteer-card";
 import { MapContainer } from "../map/map-component";
 
+import { findAllTasks } from "../../services/tasks";
+
 const VolunteerHome = () => {
+  const [dataList, setDataList] = useState([]);
+  useEffect(() => {
+    const getTasks = async () => {
+      const { data } = await findAllTasks();
+      setDataList(data);
+    };
+
+    getTasks();
+  }, []);
+
   const sampleList = [
     {
       firstName: "Tommy",
@@ -41,10 +53,15 @@ const VolunteerHome = () => {
         direction="column"
         justiy="flex-start"
         alignItems="flex-start"
-        style={{ borderRight: "solid" }}
       >
-        {sampleList.map((person) => {
-          return <VolunteerCard person={person} />;
+        {dataList.map(person => {
+          const { firstName, lastName, phone } = person;
+          return (
+            <VolunteerCard
+              key={`${firstName}-${lastName}-${phone}`}
+              person={person}
+            />
+          );
         })}
       </Grid>
 
